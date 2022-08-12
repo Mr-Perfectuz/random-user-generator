@@ -1,24 +1,55 @@
 <template>
-<h1>Hello guys</h1>
+<div class="container">
+    <HeaderForm title="Task Tracker"/>
+    <TasksForm :tasks="tasks"/>
+</div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderForm from './components/Header.vue'
+import TasksForm from './components/Tasks.vue'
 
 export default {
   name: 'App',
   components: {
+    HeaderForm,
+    TasksForm,
+  },
+  data() {
+    return {
+      tasks:[],
+    }
+  },
+  created(){
+      this.tasks = [
+        {
+          id: 1,
+          text: "Doctors Appointment",
+          day:"March 1st at 2pm",
+          reminder: true,
+
+        },
+        {
+          id: 2,
+          text: "Meeting at school",
+          day:"March 13rd at 10:00am",
+          reminder: true,
+
+        },
+        {
+          id: 3,
+          text: "Food Shopping",
+          day:"March 2st at 03:00pm",
+          reminder: false,
+
+        },
+
+      ]
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
